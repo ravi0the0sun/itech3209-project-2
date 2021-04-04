@@ -7,7 +7,7 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 
-import User from './api/model/User';
+import User from './api/models/User';
 import auth from './api/routes/auth';
 import register from './api/routes/register';
 

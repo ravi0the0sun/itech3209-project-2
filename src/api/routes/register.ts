@@ -1,31 +1,11 @@
 import { Router } from 'express';
 import passport from 'passport';
-import User from '../model/User';
+import { getRegister, postResister, sendUser } from '../controllers/register';
 
 const register = Router();
 
-register.get('/', (req, res) => {
-	res.send('register route');
-});
+register.get('/', getRegister);
 
-register.post(
-	'/',
-	async (req: any, res, next) => {
-		const { username, password } = req.body;
-		try {
-			await User.register({ username }, password);
-		} catch (error) {
-			if (error.name === 'userExistError') {
-				return res.status(400).json({ message: 'UserExistError' });
-			}
-			return res.status(500).json({ message: 'ServerError' });
-		}
-		next();
-	},
-	passport.authenticate('local'),
-	(req: any, res) => {
-		return res.json({ user: { username: req.user.username } });
-	}
-);
+register.post('/', postResister, passport.authenticate('local'), sendUser);
 
 export default register;

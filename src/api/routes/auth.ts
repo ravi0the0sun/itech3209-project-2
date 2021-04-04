@@ -1,32 +1,13 @@
 import { Router } from 'express';
 import passport from 'passport';
+import { getUser, postLogin, postLogout } from '../controllers/auth';
 
 const auth = Router();
 
-auth.get('/user', async (req, res) => {
-	if (req.user) {
-		return res.json(extractUser(req));
-	} else {
-		return res.json({ user: null });
-	}
-});
+auth.get('/user', getUser);
 
-auth.post('/logout', async (req, res) => {
-	if (req.user) {
-		req.logOut();
-		res.json({ message: 'logout' });
-	} else {
-		res.json({ message: 'no user to logout' });
-	}
-});
+auth.post('/logout', postLogout);
 
-auth.post('/login', passport.authenticate('local'), (req, res) => {
-	res.json(extractUser(req));
-});
-
-function extractUser(req: any) {
-	const { username, _id } = req.user;
-	return { user: { username, _id } };
-}
+auth.post('/login', passport.authenticate('local'), postLogin);
 
 export default auth;
