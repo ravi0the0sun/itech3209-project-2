@@ -16,6 +16,9 @@ const UserSchema = new Schema({
 		type: Date,
 		required: true,
 	},
+	address: {
+		type: String,
+	},
 });
 
 UserSchema.plugin(passportLocalMongoose);

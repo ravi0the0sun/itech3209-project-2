@@ -6,12 +6,13 @@ import path from 'path';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
+import nodemailer from 'nodemailer';
 
 import User from './api/models/User';
 import auth from './api/routes/auth';
 import register from './api/routes/register';
 
-import { PORT, URI, SECRET } from './api/config/config';
+import { PORT, URI, SECRET, USER, PASSWORD } from './api/config/config';
 
 mongoose
 	.connect(URI, {
