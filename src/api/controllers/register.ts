@@ -40,26 +40,7 @@ export const postResister = async (req: any, res: any, next: any) => {
 export const sendUser = async (req: any, res: any) => {
 	const { username, email } = req.body;
 	try {
-		const info = await transporter.sendMail({
-			from: `"Administrator" <${USER}>`,
-			to: email,
-			subject: 'Hello ✔', // Subject line
-			text: `Hello ${username},
-
-Thank you for registering using ${email}.
-If this is not you please contact our support team.
-			
-Kind Regards,
-The Team.
-			`, // plain text body
-			html: `<b>Hello ${username},</b>
-			<br>
-			<p>Thank you for registering using ${email}.</p>
-			<p>If this is not you please contact our support team.</p>
-			<p>Kind Regards,</p>
-			<br>
-			<b>The Team.</b>`, // html body
-		});
+		const info = await transporter.sendMail(message(username, email));
 		console.log('Message sent: %s', info.messageId);
 		// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
@@ -78,4 +59,27 @@ export const deleteUser = async (req: any, res: any) => {
 	} catch (err) {
 		return res.status(500).send('Unsucessful');
 	}
+};
+
+const message = (username: string, email: string) => {
+	return {
+		from: `"Administrator" <${USER}>`,
+		to: email,
+		subject: 'Hello ✔', // Subject line
+		text: `Hello ${username},
+
+Thank you for registering using ${email}.
+If this is not you please contact our support team.
+			
+Kind Regards,
+The Team.
+			`, // plain text body
+		html: `<b>Hello ${username},</b>
+			<br>
+			<p>Thank you for registering using <b>${email}</b>.</p>
+			<p>If this is not you please contact our support team.</p>
+			<br>
+			<p>Kind Regards,</p>
+			<b>The Team.</b>`, // html body
+	};
 };
