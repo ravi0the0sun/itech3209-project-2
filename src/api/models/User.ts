@@ -1,6 +1,12 @@
 import { Schema, model } from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
 
+enum USER {
+	ROOT = 2,
+	ADMIN = 1,
+	USER = 0,
+}
+
 const UserSchema = new Schema({
 	username: {
 		type: String,
@@ -18,6 +24,11 @@ const UserSchema = new Schema({
 	},
 	address: {
 		type: String,
+	},
+	role: {
+		type: USER,
+		required: true,
+		default: USER.USER,
 	},
 });
 

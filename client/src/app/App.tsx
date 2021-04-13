@@ -1,12 +1,14 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-// import About from './routes/About';
-// import Clients from './routes/Clients';
-// import Profile from './routes/Profile';
-// import Dashboard from './routes/Dashboard';
-// import Register from './routes/Register';
-// import Login from './routes/Login';
+import About from './routes/About';
+import Clients from './routes/Clients';
+import Profile from './routes/Profile';
+import Dashboard from './routes/Dashboard';
+import Register from './routes/Register';
+import Login from './routes/Login';
+
+import { UserContext } from './context/UserContext';
 
 export default function App() {
 	return (
@@ -34,35 +36,15 @@ export default function App() {
 						</li>
 					</ul>
 				</nav>
-
-				<Switch>
-					<Route path="/about">
-						<About />
-					</Route>
-					<Route path="/profile">
-						<Profile />
-					</Route>
-					<Route path="/clients">
-						<Clients />
-					</Route>
-					<Route path="/register">
-						<Register />
-					</Route>
-					<Route path="/login">
-						<Login />
-					</Route>
-					<Route path="/">
-						<Dashboard />
-					</Route>
-				</Switch>
+				<UserContext.Provider value={'hello'}>
+					<Route path="/" exact component={Dashboard} />
+					<Route path="/about" component={About} />
+					<Route path="/profile" component={Profile} />
+					<Route path="/clients" component={Clients} />
+					<Route path="/register" component={Register} />
+					<Route path="/login" component={Login} />
+				</UserContext.Provider>
 			</div>
 		</Router>
 	);
 }
-
-const Dashboard = () => <h1>Hello</h1>;
-const About = () => <h1>About</h1>;
-const Profile = () => <h1>Profile</h1>;
-const Clients = () => <h1>Clients</h1>;
-const Register = () => <h1>Register</h1>;
-const Login = () => <h1>Login</h1>;
