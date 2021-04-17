@@ -19,6 +19,9 @@ export const getRegister = (req: any, res: any) => {
 export const postResister = async (req: any, res: any, next: any) => {
 	const { username, password, email, dob } = req.body;
 	try {
+		if (!(username && password && email && dob)) {
+			throw new Error('MissingUserCredinitals');
+		}
 		const findUser = await User.findOne({ email: email });
 		if (findUser) {
 			throw new Error('EmailExistError');
@@ -31,6 +34,9 @@ export const postResister = async (req: any, res: any, next: any) => {
 		}
 		if (error.message === 'EmailExistError') {
 			return res.status(400).json({ message: 'EmailExistError' });
+		}
+		if (error.message === 'MissingUserCredinitals') {
+			return res.status(400).json({ message: 'MissingUserCredinitals' });
 		}
 		return res.status(500).json({ message: 'ServerError' });
 	}

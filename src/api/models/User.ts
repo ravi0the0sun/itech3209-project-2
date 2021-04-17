@@ -30,8 +30,18 @@ const UserSchema = new Schema({
 		required: true,
 		default: USER.USER,
 	},
+	tickeIds: {
+		type: [Schema.Types.ObjectId],
+		ref: 'Ticket',
+		default: [],
+	},
+	chatIds: {
+		types: [Schema.Types.ObjectId],
+		ref: 'Chat',
+		default: [],
+	},
 });
 
 UserSchema.plugin(passportLocalMongoose);
-const User: any = model('user', UserSchema);
+const User: any = model('User', UserSchema);
 export default User;

@@ -16,10 +16,10 @@ export const postLogout = (req: any, res: any) => {
 };
 
 export const postLogin = (req: any, res: any) => {
-	res.json(extractUser(req));
+	return res.status(200).json(extractUser(req));
 };
 
 function extractUser(req: any) {
-	const { username, _id } = req.user;
-	return { user: { username, _id } };
+	const { username, _id, role, email, dob } = req.user;
+	return { user: { username, _id, role, email, dob } };
 }
