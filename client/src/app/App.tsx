@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 
 import {
 	BrowserRouter as Router,
@@ -64,7 +64,7 @@ export default function App() {
 						<Route path="/register" component={Register} />
 						<Route path="/login" component={Login} />
 						<Route path="/" exact>
-							{!user ? <Redirect to="/login" /> : <Redirect to="/Dashboard" />}
+							{!user ? <Redirect to="/login" /> : <Redirect to="/dashboard" />}
 						</Route>
 						<Route path="/dashboard">
 							{!user ? <Redirect to="/login" /> : <Dashboard />}

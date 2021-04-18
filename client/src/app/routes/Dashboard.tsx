@@ -3,7 +3,12 @@ import {} from '@material-ui/core';
 import { UserContext } from '../context/UserContext';
 import AdminDashboard from '../components/AdminDashboard';
 
-export default function Clients() {
-	const user: any = useContext(UserContext);
-	return <>{!(user?.role > 0) ? <p>Hello user</p> : <AdminDashboard />}</>;
+export default function Dashboard() {
+	const { user, setUser } = useContext(UserContext);
+	return (
+		<>{!(user?.role > 0) ? <p>Hello {user.username}</p> : <AdminDashboard />}</>
+		// <>
+		// 	<p>Hello {JSON.stringify(user)}</p>
+		// </>
+	);
 }

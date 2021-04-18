@@ -17,28 +17,28 @@ export const getRegister = (req: any, res: any) => {
 };
 
 export const postResister = async (req: any, res: any, next: any) => {
-	const { username, password, email, dob } = req.body;
+	const { username, password, email, dob, address } = req.body;
 	try {
-		if (!(username && password && email && dob)) {
+		if (!(username && password && email && dob && address)) {
 			throw new Error('MissingUserCredinitals');
 		}
 		const findUser = await User.findOne({ email: email });
 		if (findUser) {
 			throw new Error('EmailExistError');
 		}
-		await User.register(new User({ username, email, dob }), password);
+		await User.register(new User({ username, email, dob, address }), password);
 	} catch (error) {
 		console.log(error);
 		if (error.name === 'UserExistsError') {
-			return res.status(400).json({ message: 'UserExistError' });
+			return res.status(400).send({ message: 'UserExistError' });
 		}
 		if (error.message === 'EmailExistError') {
-			return res.status(400).json({ message: 'EmailExistError' });
+			return res.status(400).send({ message: 'EmailExistError' });
 		}
 		if (error.message === 'MissingUserCredinitals') {
-			return res.status(400).json({ message: 'MissingUserCredinitals' });
+			return res.status(400).send({ message: 'MissingUserCredinitals' });
 		}
-		return res.status(500).json({ message: 'ServerError' });
+		return res.status(500).send({ message: 'ServerError' });
 	}
 	next();
 };

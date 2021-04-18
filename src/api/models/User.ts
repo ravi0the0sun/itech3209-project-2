@@ -30,14 +30,14 @@ const UserSchema = new Schema({
 		required: true,
 		default: USER.USER,
 	},
-	tickeIds: {
+	ticketId: {
 		type: [Schema.Types.ObjectId],
 		ref: 'Ticket',
 		default: [],
 	},
 	chatIds: {
 		types: [Schema.Types.ObjectId],
-		ref: 'Chat',
+		// ref: 'Chat',
 		default: [],
 	},
 });
