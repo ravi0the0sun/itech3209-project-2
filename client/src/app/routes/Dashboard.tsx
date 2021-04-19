@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import {} from '@material-ui/core';
-import { UserContext } from '../context/UserContext';
-import AdminDashboard from '../components/AdminDashboard';
+import { UserContext } from 'app/context/UserContext';
+import AdminDashboard from 'app/components/AdminDashboard';
 
 export default function Dashboard() {
 	const { user } = useContext(UserContext);

@@ -1,9 +1,10 @@
 import {} from '@material-ui/core';
+import clients from 'assets/images/clients.jpeg';
 
 export default function Clients() {
 	return (
 		<>
-			<h1>Clients</h1>
+			<img src={clients} />
 		</>
 	);
 }

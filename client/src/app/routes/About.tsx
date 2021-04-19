@@ -1,10 +1,10 @@
 import {} from '@material-ui/core';
-import logo from '../../assets/images/logo.png';
-import face from '../../assets/images/arif.png';
-import delivery from '../../assets/images/delivery.png';
-import customer from '../../assets/images/customer.png';
-import best from '../../assets/images/best.png';
-import '../styles/About.css';
+import logo from 'assets/images/logo.png';
+import face from 'assets/images/arif.png';
+import delivery from 'assets/images/delivery.png';
+import customer from 'assets/images/customer.png';
+import best from 'assets/images/best.png';
+import 'app/styles/About.css';
 
 export default function About() {
 	return (
@@ -13,7 +13,7 @@ export default function About() {
 				<div className={'mainContainer'}>
 					<div className={'rightContainer'}>
 						<div className={'logoContainer'}>
-							<img src={logo} alt={'logoImg'} />
+							<img src={logo} alt={'logo'} />
 						</div>
 						<div>
 							<p>

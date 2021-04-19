@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {} from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import { register } from '../../common/api/index';
+import { register } from 'common/api/index';
 
 export default function Clients() {
 	const history = useHistory();

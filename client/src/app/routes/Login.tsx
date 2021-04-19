@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
 import {} from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router-dom';
-import { login } from '../../common/api/index';
-import '../styles/Login.css';
+import { login } from 'common/api/index';
+import 'app/styles/Login.css';
 
-import { UserContext } from '../context/UserContext';
+import { UserContext } from 'app/context/UserContext';
 
 export default function Clients() {
 	const location = useLocation();

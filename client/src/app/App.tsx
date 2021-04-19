@@ -18,9 +18,9 @@ import NotFound from './routes/NotFound';
 import Home from './routes/Home';
 
 import { UserContext } from './context/UserContext';
-import useUserSate from '../common/hooks/useUserState';
+import useUserSate from 'common/hooks/useUserState';
 
-import logo from '../assets/images/logo.png';
+import logo from 'assets/images/logo.png';
 
 export default function App() {
 	const [userProvider, user, setUser] = useUserSate();
