@@ -1,0 +1,31 @@
+.outerContiner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 5rem;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	width: 10rem;
+	padding: 5rem;
+	border-width: 0.5px;
+	border-style: solid;
+	box-shadow: 5px 5px rgb(211, 210, 210);
+}
+
+.formContainer {
+}
+
+.heading {
+}
+
+.input {
+}
+
+.label {
+}

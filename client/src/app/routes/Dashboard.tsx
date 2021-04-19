@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import AdminDashboard from '../components/AdminDashboard';
 
 export default function Dashboard() {
-	const { user, setUser } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 	return (
 		<>{!(user?.role > 0) ? <p>Hello {user.username}</p> : <AdminDashboard />}</>
 		// <>

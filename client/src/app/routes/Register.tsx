@@ -26,58 +26,63 @@ export default function Clients() {
 	};
 	return (
 		<>
-			<form>
-				<label>
-					Username
-					<br />
-					<input
-						type={'text'}
-						value={username}
-						onChange={e => setUsername(e.target.value)}
-					/>
-				</label>
-				<br />
-				<label>
-					Email
-					<br />
-					<input
-						type={'email'}
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-					/>
-				</label>
-				<br />
-				<label>
-					Password
-					<br />
-					<input
-						type={'password'}
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-					/>
-				</label>
-				<br />
-				<label>
-					Address
-					<br />
-					<input
-						type={'text'}
-						value={address}
-						onChange={e => setAddress(e.target.value)}
-					/>
-				</label>
-				<br />
-				<label>
-					Date of Birth
-					<br />
-					<input
-						type={'date'}
-						value={dob}
-						onChange={e => setDob(e.target.value)}
-					/>
-				</label>
-			</form>
-			<button onClick={registerHandler}>Register</button>
+			<div className={'outerContiner'}>
+				<div className={'container'}>
+					<h1>Register</h1>
+					<form>
+						<label>
+							Username
+							<br />
+							<input
+								type={'text'}
+								value={username}
+								onChange={e => setUsername(e.target.value)}
+							/>
+						</label>
+						<br />
+						<label>
+							Email
+							<br />
+							<input
+								type={'email'}
+								value={email}
+								onChange={e => setEmail(e.target.value)}
+							/>
+						</label>
+						<br />
+						<label>
+							Password
+							<br />
+							<input
+								type={'password'}
+								value={password}
+								onChange={e => setPassword(e.target.value)}
+							/>
+						</label>
+						<br />
+						<label>
+							Address
+							<br />
+							<input
+								type={'text'}
+								value={address}
+								onChange={e => setAddress(e.target.value)}
+							/>
+						</label>
+						<br />
+						<label>
+							Date of Birth
+							<br />
+							<input
+								type={'date'}
+								value={dob}
+								onChange={e => setDob(e.target.value)}
+							/>
+						</label>
+					</form>
+					<button onClick={registerHandler}>Register</button>
+				</div>
+			</div>
 		</>
 	);
 }

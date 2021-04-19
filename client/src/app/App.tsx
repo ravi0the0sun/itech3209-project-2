@@ -19,31 +19,38 @@ import NotFound from './routes/NotFound';
 import { UserContext } from './context/UserContext';
 import useUserSate from '../common/hooks/useUserState';
 
+import logo from '../assets/images/logo.png';
+
 export default function App() {
 	const [userProvider, user, setUser] = useUserSate();
 	return (
 		<Router>
-			<div>
-				<nav>
+			<div className={'navContainer'}>
+				<nav className={'innerContainer'}>
+					<div>
+						<img src={logo} alt={'logo'} id={'logoImg'} />
+					</div>
 					{!user ? (
 						<ul>
-							<li>
-								<Link to="/about">About</Link>
-							</li>
-							<li>
-								<Link to="/clients">Clients</Link>
-							</li>
-							<li>
-								<Link to="/register">Register</Link>
-							</li>
-							<li>
-								<Link to="/login">Login</Link>
-							</li>
+							<div className={'listContiner'}>
+								<li className={'navBtn'}>
+									<Link to="/login">Login</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/register">Register</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/about">About</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/clients">Clients</Link>
+								</li>
+							</div>
 						</ul>
 					) : (
 						<ul>
 							<li>
-								<Link to="/Dashboard">Dashboard</Link>
+								<Link to="/dashboard">Dashboard</Link>
 							</li>
 							<li>
 								<Link to="/about">About</Link>

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import {} from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router-dom';
 import { login } from '../../common/api/index';
+import '../styles/Login.css';
 
 import { UserContext } from '../context/UserContext';
 
@@ -20,34 +21,42 @@ export default function Clients() {
 	};
 	return (
 		<>
-			<h1>Login</h1>
-			<form>
-				<label>
-					Username
-					<br />
-					<input
-						type={'text'}
-						value={username}
-						onChange={e => setUsername(e.target.value)}
-					/>
-				</label>
-				<br />
-				<label>
-					Password
-					<br />
-					<input
-						type={'password'}
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-					/>
-				</label>
-			</form>
-			<button
-				onClick={() => {
-					loginHandler(username, password);
-				}}>
-				Login!
-			</button>
+			<div className={'outerContiner'}>
+				<div className={'container'}>
+					<h1 className={'heading'}>Login</h1>
+					<div className={'formContainer'}>
+						<form>
+							<label className={'label'}>
+								Username <br />
+								<input
+									className={'input'}
+									type={'text'}
+									value={username}
+									onChange={e => setUsername(e.target.value)}
+								/>
+							</label>
+							<br />
+							<label className={'label'}>
+								Password <br />
+								<input
+									className={'input'}
+									type={'password'}
+									value={password}
+									onChange={e => setPassword(e.target.value)}
+								/>
+							</label>
+						</form>
+					</div>
+					<div className={'btnContainer'}>
+						<button
+							onClick={() => {
+								loginHandler(username, password);
+							}}>
+							Login!
+						</button>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

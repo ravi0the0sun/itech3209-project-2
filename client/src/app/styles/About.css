@@ -1,0 +1,36 @@
+.aboutContainer {
+	display: flex;
+	flex-direction: column;
+}
+.mainContainer {
+	display: flex;
+	flex-direction: row;
+	padding-right: 10rem;
+	padding-left: 10rem;
+	justify-content: center;
+	align-items: center;
+}
+.logoContainer {
+	width: 3rem;
+	height: 5rem;
+}
+.logoImg {
+	width: 10rem;
+	height: 100%;
+}
+.rightContainer {
+	padding: 1rem;
+}
+.leftContainer {
+	padding: 3rem 2rem;
+}
+.badgeContainer {
+	display: flex;
+	padding-left: 7rem;
+}
+.customer {
+	width: 200px;
+}
+.best {
+	width: 200px;
+}
