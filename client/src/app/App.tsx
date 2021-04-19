@@ -15,6 +15,7 @@ import Dashboard from './routes/Dashboard';
 import Register from './routes/Register';
 import Login from './routes/Login';
 import NotFound from './routes/NotFound';
+import Home from './routes/Home';
 
 import { UserContext } from './context/UserContext';
 import useUserSate from '../common/hooks/useUserState';
@@ -34,8 +35,12 @@ export default function App() {
 						<ul>
 							<div className={'listContiner'}>
 								<li className={'navBtn'}>
+									<Link to="/home">Home</Link>
+								</li>
+								<li className={'navBtn'}>
 									<Link to="/login">Login</Link>
 								</li>
+
 								<li className={'navBtn'}>
 									<Link to="/register">Register</Link>
 								</li>
@@ -70,8 +75,9 @@ export default function App() {
 						<Route path="/clients" component={Clients} />
 						<Route path="/register" component={Register} />
 						<Route path="/login" component={Login} />
+						<Route path="/home" component={Home} />
 						<Route path="/" exact>
-							{!user ? <Redirect to="/login" /> : <Redirect to="/dashboard" />}
+							{!user ? <Redirect to="/home" /> : <Redirect to="/dashboard" />}
 						</Route>
 						<Route path="/dashboard">
 							{!user ? <Redirect to="/login" /> : <Dashboard />}

@@ -28,7 +28,7 @@ export default function Clients() {
 		<>
 			<div className={'outerContiner'}>
 				<div className={'container'}>
-					<h1>Register</h1>
+					<h1 className={'heading'}>Register</h1>
 					<form>
 						<label>
 							Username
