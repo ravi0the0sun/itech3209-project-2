@@ -54,18 +54,20 @@ export default function App() {
 						</ul>
 					) : (
 						<ul>
-							<li>
-								<Link to="/dashboard">Dashboard</Link>
-							</li>
-							<li>
-								<Link to="/about">About</Link>
-							</li>
-							<li>
-								<Link to="/profile">Profile</Link>
-							</li>
-							<li>
-								<Link to="/clients">Clients</Link>
-							</li>
+							<div className={'listContiner'}>
+								<li className={'navBtn'}>
+									<Link to="/dashboard">Dashboard</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/about">About</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/profile">Profile</Link>
+								</li>
+								<li className={'navBtn'}>
+									<Link to="/clients">Clients</Link>
+								</li>
+							</div>
 						</ul>
 					)}
 				</nav>
