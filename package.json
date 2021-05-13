@@ -9,12 +9,14 @@
 		"build": "tsc -p .",
 		"client": "npm run start --prefix client",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "concurrently \"npm run server\" \"npm run client\" "
+		"dev": "concurrently \"npm run server\" \"npm run client\" ",
+		"pre-install": "npm install && npm install --perfix client"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"client": "file:client",
 		"connect-mongo": "^4.4.1",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
